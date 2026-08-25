@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Двум важным людям</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+  <!-- ===========================================================
+       ЭКРАН КОНВЕРТА — нажатие открывает письмо
+       =========================================================== -->
+  <div class="envelope-screen" id="envelopeScreen">
+    <div class="envelope" id="envelope" onclick="openEnvelope()">
+      <div class="envelope-body"></div>
+      <div class="envelope-flap"></div>
+      <div class="seal">♥</div>
+      <div class="envelope-hint">нажми, чтобы открыть</div>
+    </div>
+  </div>
+
+  <!-- ===========================================================
+       ПИСЬМО
+       =========================================================== -->
+  <main class="letter">
+
+    <section class="hero">
+      <div class="eyebrow">Двум людям, которые для меня значат очень много</div>
+      <h1>Самым важным женщинам в моей жизни</h1>
+      <p>Это письмо не для одной — для обеих. Каждая заслуживает своих слов, и я хочу, чтобы вы обе это почувствовали.</p>
+    </section>
+
+    <!-- ======================= ПИСЬМО №1 — АНАСТАСИЯ ======================= -->
+    <section class="section" id="sectionGirlfriend">
+      <div class="frame-col">
+        <div class="photo-slot">
+          <div class="corner tl"></div>
+          <div class="corner br"></div>
+          <div class="inner">
+            <img src="media/Anastasia.jpg" alt="Анастасия">
+          </div>
+        </div>
+      </div>
+
+      <div class="text-col">
+        <div class="to">Тебе,</div>
+        <h2>Анастасия</h2>
+        <p>
+          С тобой обычные дни перестали быть обычными. Мне нравится, как ты
+          смеёшься, когда не пытаешься сдерживаться, когда смеёшься как лошадь при моих выкидышах, которые почему то ты назвала шутками.
+        </p>
+        <p>
+          Хоть ты и не рядом – ты то, ради чего я хочу быть лучше. Спасибо,
+          что позволяешь мне быть настоящим с тобой, без масок и без спешки.
+        </p>
+        <div class="signature">— твой любимчик</div>
+      </div>
+    </section>
+
+    <div class="divider">
+      <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 20 C 50 5, 70 35, 100 20 C 130 5, 150 35, 200 20"
+              stroke="#a9834a" stroke-width="1.2"/>
+        <circle cx="100" cy="20" r="3" fill="#6b1f2a"/>
+      </svg>
+    </div>
+
+    <!-- ======================= ПИСЬМО №2 — ТАМИЛА ======================= -->
+    <section class="section reverse" id="sectionMother">
+      <div class="frame-col">
+        <div class="photo-slot">
+          <div class="corner tl"></div>
+          <div class="corner br"></div>
+          <div class="inner">
+            <img src="media/tamila.jpg" alt="Тамила">
+          </div>
+        </div>
+      </div>
+
+      <div class="text-col">
+        <div class="to">Вам,</div>
+        <h2>Тамила</h2>
+        <p>
+          Вы – женщина, что в самом расцвете своей жизни, имеете красоту несравнимую ни с кем, которая вызывает у меня неистовое восхищение, и чтобы вы знали:
+          Вас любят, вас ценят, вас уважают, и я отношусь именно к этим людям.
+        </p>
+        <p>
+          Меня восхищают ваши достижения, ибо имея столько достижений в сфере образования вы по настоящему талантливая и целеустремлённая женщина. Спасибо вам за это – и за все ваши старания, вы большая молодец.
+        </p>
+        <div class="signature">— с уважением А.С.</div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <p>
+        Пусть эта открытка станет маленьким напоминанием: вы обе – самые важные для меня 2 человека, которых я люблю и уважаю.
+      </p>
+      <div class="date">24.08.26 с любовью</div>
+    </section>
+
+  </main>
+
+<script>
+  function openEnvelope(){
+    document.getElementById('envelope').classList.add('open');
+    setTimeout(function(){
+      document.getElementById('envelopeScreen').classList.add('hidden');
+    }, 550);
+  }
+
+  var sections = document.querySelectorAll('.section');
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+  sections.forEach(function(s){ observer.observe(s); });
+</script>
+
+</body>
+</html>
